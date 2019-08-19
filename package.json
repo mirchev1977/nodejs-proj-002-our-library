@@ -16,5 +16,11 @@
   ],
   "author": "Miroslav Mirchev",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/mirchev7/nodejs#readme"
+  "homepage": "https://bitbucket.org/mirchev7/nodejs#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
