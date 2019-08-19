@@ -1,7 +1,7 @@
 {
   "name": "library",
   "version": "1.0.0",
-  "description": "library - enter and sort books",
+  "description": "library, books",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,9 +11,8 @@
     "url": "git+https://mirchev7@bitbucket.org/mirchev7/nodejs.git"
   },
   "keywords": [
-    "library",
-    "enter",
-    "books"
+    "books",
+    "library"
   ],
   "author": "Miroslav Mirchev",
   "license": "ISC",
