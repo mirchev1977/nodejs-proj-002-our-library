@@ -7,13 +7,14 @@ const app = express();
 app.use( bodyParser.urlencoded( { extended: false } ) );
 
 app.get( '/', ( req, res, next ) => {
-    res.status( 200 ).setHeader( 'Content-Type', 'text/html' );
-    res.write( '<h1>Welcome to our Library!</h1>' );
     t( 'homepage', {
         one: 'one-value',
         two: 'two-value'
+    } ).then( html => {
+        res.status( 200 ).setHeader( 'Content-Type', 'text/html' );
+        res.write( html );
+        res.end();
     } );
-    res.send();
 } );
 
 app.listen( 3000 );

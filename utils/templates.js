@@ -18,13 +18,12 @@ const temp = ( _path, _data ) => {
                 resolve( fileString );
             } else { 
                 Object.keys( _data ).forEach( ( _key ) => {
-                    fileString 
-                        = fileString.replace(
-                                new RegExp( `/${_key}/`, 'g'), _data[ _key ] 
-                            );
+                    fileString = fileString.replace(
+                        new RegExp( `{{${_key}}}`, 'g' ), _data[ _key ] 
+                    );
                 } );
 
-                console.log( fileString, _data );
+                resolve( fileString );
             }
         } ); 
     } );
@@ -33,20 +32,25 @@ const temp = ( _path, _data ) => {
 };
 
 const template = ( _path, _data ) => {
-    let _header;
-    let _footer;
-    temp( 'header', {} ).then( header => {
-        return header;
-    } ).then( header => {
-        _header = header;
-        return temp( 'footer', {} );
-    } ).then( footer => {
-        _footer = footer;
-
-        temp( _path, _data );
-    } ).catch( err => {
-        debugger;
+    const promise = new Promise( ( resolve, reject ) => {
+        let _header;
+        let _footer;
+        temp( 'header', {} ).then( header => {
+            return header;
+        } ).then( header => {
+            _header = header;
+            return temp( 'footer', {} );
+        } ).then( footer => {
+            _footer = footer;
+            return temp( _path, _data );
+        } ).then( body => {
+            resolve( `${_header}${body}${_footer}` );
+        } ).catch( err => {
+            debugger;
+        } ); 
     } );
+
+    return promise;
 };
 
 module.exports = template;
