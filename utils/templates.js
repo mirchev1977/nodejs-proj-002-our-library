@@ -47,7 +47,9 @@ const template = ( _path, _data ) => {
             return temp( 'footer', {} );
         } ).then( footer => {
             _footer = footer;
-            return temp( _path, _data );
+            if ( !_data[ 'arr' ] ) {
+                return temp( _path, _data ); 
+            }
         } ).then( body => {
             resolve( `${_header}${body}${_footer}` );
         } ).catch( err => {
