@@ -1,7 +1,15 @@
 <style>
     body {
         height: 100%;
+        margin: 0px;
+        padding: 0px;
     }
+    ul.header-menu {
+        margin: 0px;
+        padding: 0px;
+        height: 5%;
+    }
+
     ul.header-menu > li {
         list-style-type: none;
         display: inline-block;
@@ -14,16 +22,29 @@
     ul.header-menu > li >a {
         text-decoration: none;
     }
+
+    ul.header-menu > li:hover {
+        background-color: yellowgreen;
+    }
     
     .page-wrapper {
-        height: 70%;
+        min-height: 80%;
         padding-top: 5%;
+        box-sizing: border-box;
+    }
+
+    .outer-wrapper {
+        width: 50%;
+        height: 100%;
+        margin: 30px auto;
+        padding-bottom: 20px;
         box-sizing: border-box;
     }
 </style>
 <body>
-    <ul class="header-menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/admin/new-book">New Book</a></li>
-    </ul>
-    <div class="page-wrapper">
+    <div class="outer-wrapper">
+        <ul class="header-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/admin/new-book">New Book</a></li>
+        </ul>
+        <div class="page-wrapper">

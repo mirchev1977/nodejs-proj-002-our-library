@@ -1,4 +1,9 @@
 <style>
+    ul.header-menu {
+        margin: 0px;
+        padding: 0px;
+    }
+
     ul.header-menu > li {
         list-style-type: none;
         display: inline-block;
@@ -11,10 +16,15 @@
     ul.header-menu > li >a {
         text-decoration: none;
     }
+
+    ul.header-menu > li:hover {
+        background-color: yellowgreen;
+    }
 </style>
+        </div>
+        <ul class="header-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/admin/new-book">New Book</a></li>
+        </ul>
     </div>
-    <ul class="header-menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/admin/new-book">New Book</a></li>
-    </ul>
 </body>
