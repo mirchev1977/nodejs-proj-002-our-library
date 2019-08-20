@@ -1,5 +1,16 @@
 const fs = require( 'fs' );
 
+
+const replaceAll = ( fileString, _data ) => {
+    Object.keys( _data ).forEach( ( _key ) => {
+        fileString = fileString.replace(
+            new RegExp( `{{${_key}}}`, 'g' ), _data[ _key ] 
+        );
+    } );
+
+    return fileString;
+}
+
 const temp = ( _path, _data ) => {
     const promise = new Promise( ( resolve, reject ) => {
         let fileString = '';
@@ -17,13 +28,7 @@ const temp = ( _path, _data ) => {
             ) {
                 resolve( fileString );
             } else { 
-                Object.keys( _data ).forEach( ( _key ) => {
-                    fileString = fileString.replace(
-                        new RegExp( `{{${_key}}}`, 'g' ), _data[ _key ] 
-                    );
-                } );
-
-                resolve( fileString );
+                resolve( replaceAll( fileString, _data ) );
             }
         } ); 
     } );
