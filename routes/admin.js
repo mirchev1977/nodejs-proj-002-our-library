@@ -15,4 +15,19 @@ router.get( '/new-book', ( req, res, next ) => {
     } );
 } );
 
+router.post( '/new-book', ( req, res, next ) => {
+    res.statusCode = 200;
+    res.setHeader( 'Content-Type', 'text/html' );
+    res.write( '<h1>' );
+    res.write( req.body[ 'book-title' ] );
+    res.write( '</h1>' );
+    res.write( '<h1>' );
+    res.write( req.body[ 'book-author' ] );
+    res.write( '</h1>' );
+    res.write( '<h1>' );
+    res.write( req.body[ 'book-issuedon' ] );
+    res.write( '</h1>' );
+    res.end();
+} );
+
 module.exports = router;
