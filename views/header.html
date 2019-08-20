@@ -1,1 +1,29 @@
-<h1>Header</h1>
+<style>
+    body {
+        height: 100%;
+    }
+    ul.header-menu > li {
+        list-style-type: none;
+        display: inline-block;
+        border: 1px solid black;
+        padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    ul.header-menu > li >a {
+        text-decoration: none;
+    }
+    
+    .page-wrapper {
+        height: 70%;
+        padding-top: 5%;
+        box-sizing: border-box;
+    }
+</style>
+<body>
+    <ul class="header-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/admin/new-book">New Book</a></li>
+    </ul>
+    <div class="page-wrapper">
