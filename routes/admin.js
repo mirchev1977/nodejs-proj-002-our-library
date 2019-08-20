@@ -5,7 +5,14 @@ const t       = require( '../utils/templates' );
 const router = express.Router();
 
 router.get( '/new-book', ( req, res, next ) => {
-    res.send( '<h1>New Book</h1>' );
+    t( 
+        'admin/new-book', {
+            one: 'one-value',
+            two: 'two-value'
+        }
+    ).then( newBookHtml => {
+        res.send( newBookHtml ); 
+    } );
 } );
 
 module.exports = router;
