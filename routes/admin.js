@@ -26,7 +26,7 @@ router.post( '/new-book', ( req, res, next ) => {
         if ( err ) {
             debugger;
         }
-        res.end();
+        res.redirect( '/' );
     } );
 } );
 
