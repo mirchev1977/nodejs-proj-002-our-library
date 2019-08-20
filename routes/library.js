@@ -5,7 +5,7 @@ const t = require( '../utils/templates' );
 const router = express.Router();
 
 
-router.get( '/', ( req, res, next ) => {
+router.get( '', ( req, res, next ) => {
     t( 'homepage', {
         one: 'one-value',
         two: 'two-value'
