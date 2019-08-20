@@ -9,8 +9,14 @@
         margin-left:  105px;
         margin-top:   10px;
     }
+    label, input {
+        display: inline-block;
+        height: 30px;
+    }
+
 </style>
 <h1>Enter new book here</h1>
+<hr>
 <form action="/admin/new-book" method="POST">
     <label for="book-title">Title</label>
     <input type="text" name="book-title"    id="book-title"  ><br />
