@@ -55,17 +55,25 @@
         ) {
             ev.preventDefault();
             console.log( 'You cannot submit the form' );
-            debugger;
         }
 
-        var dateCorrect = bookIssuedOn.value
-                .match( /[0123][0-9]\.[01][0-9]\.[12]\d{3}/ );
+        const _regxDate  = '(?:0[1-9]|[12][0-9]|3[01])';
+        const _regxMonth = '(?:0[1-9]|1[012])';
+        const _regxYear  = '[12]\\d{3}';
 
+        const _regExp = new RegExp( 
+            '(?:' 
+                + _regxDate  + '\\.' 
+                + _regxMonth + '\\.' 
+                + _regxYear
+            + ')' 
+        ); 
+
+        var dateCorrect = bookIssuedOn.value.match( _regExp );
 
         if ( !dateCorrect ) {
             ev.preventDefault();
             console.log( 'wrong date', bookIssuedOn.value );
-            debugger;
         }
     } ); 
 </script>
