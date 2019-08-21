@@ -49,15 +49,15 @@ const template = ( _path, _data ) => {
             _footer = footer;
 
             if ( _path === 'homepage' && _data[ 'arr' ] ) {
-                const _headers = _data[ 'arr' ].shift().split( ';' );
+                const _headers = _data[ 'arr' ].shift().split( ';' ); 
 
                 let output = '';
 
                 const _promiseOutput = new Promise( ( resolve, reject ) => {
                     temp( 'library/bookth', {
-                        title: _headers[ 0 ],
-                        author: _headers[ 1 ],
-                        issuedon: _headers[ 2 ]
+                        title: _headers[ 0 ].toUpperCase(),
+                        author: _headers[ 1 ].toUpperCase(),
+                        issuedon: _headers[ 2 ].toUpperCase()
                     } ).then( book => {
                         output += book;
 

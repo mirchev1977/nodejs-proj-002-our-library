@@ -54,7 +54,8 @@
             || !bookIssuedOn.value
         ) {
             ev.preventDefault();
-            console.log( 'You cannot submit the form' );
+            const errorMessage = document.getElementsByClassName( 'warning' );
+            errorMessage[0].innerText = 'You cannot submit the form.There are empty fields!';
         }
 
         const _regxDate  = '(?:0[1-9]|[12][0-9]|3[01])';
@@ -74,6 +75,8 @@
         if ( !dateCorrect ) {
             ev.preventDefault();
             console.log( 'wrong date', bookIssuedOn.value );
+            const errorMessage = document.getElementsByClassName( 'warning' );
+            errorMessage[0].innerText = 'Wrong Date';
         }
     } ); 
 </script>
