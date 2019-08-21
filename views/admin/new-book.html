@@ -28,13 +28,44 @@
 <h1>Enter new book here</h1>
 <hr>
 <div class="form-wrapper">
-    <form action="/admin/new-book" method="POST">
+    <form action="/admin/new-book" method="POST" id="form__new-book">
         <label for="book-title">Title</label>
         <input type="text" name="book-title"    id="book-title"  ><br />
         <label for="book-author">Author</label>
         <input type="text" name="book-author"   id="book-author" ><br />
         <label for="book-issuedon">Issued On</label>
-        <input type="date" name="book-issuedon" id="book-issuedon"><br />
+        <input type="text" 
+            placeholder="dd.mm.yyyy"
+            name="book-issuedon" id="book-issuedon"><br />
         <button type="submit">Enter Book</button>
     </form>
 </div>
+
+<script>
+    const bookTitle    = document.getElementById( 'book-title'    );
+    const bookAuthor   = document.getElementById( 'book-author'   );
+    const bookIssuedOn = document.getElementById( 'book-issuedon' );
+
+    const formNewBook = document.getElementById( 'form__new-book' );
+    formNewBook.addEventListener( 'submit', function ( ev ) {
+        if ( 
+            !bookTitle.value
+            || !bookAuthor.value
+            || !bookIssuedOn.value
+        ) {
+            ev.preventDefault();
+            console.log( 'You cannot submit the form' );
+            debugger;
+        }
+
+        var dateCorrect = bookIssuedOn.value
+                .match( /[0123][0-9]\.[01][0-9]\.[12]\d{3}/ );
+
+
+        if ( !dateCorrect ) {
+            ev.preventDefault();
+            console.log( 'wrong date', bookIssuedOn.value );
+            debugger;
+        }
+    } ); 
+</script>
