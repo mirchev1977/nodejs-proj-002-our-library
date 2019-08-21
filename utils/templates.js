@@ -72,7 +72,8 @@ const template = ( _path, _data ) => {
                                     _i 
                                     === ( _data[ 'arr' ].length - 1 ) 
                                 ) {
-                                    output = `${homepage}<table>${output}</table>`;
+                                    output 
+                                        = `${homepage}<table class="books-table">${output}</table>`;
                                     resolve( output );
                                 }
                             } );
