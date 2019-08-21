@@ -6,3 +6,8 @@ ten;elleven;twelve
 Mister Nobody;Karl Mai;22.12.2012
 one;two;three
 four;five;six
+Lele Male;author 1;22.12.2010
+Portokale;Pesho Peshev;22.12.2010
+Hello World;Pesho Peshev;22.12.2010
+hello;world;22.12.2010
+one;two;three
