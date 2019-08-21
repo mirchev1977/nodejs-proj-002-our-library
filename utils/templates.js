@@ -47,9 +47,54 @@ const template = ( _path, _data ) => {
             return temp( 'footer', {} );
         } ).then( footer => {
             _footer = footer;
-            if ( !_data[ 'arr' ] ) {
-                return temp( _path, _data ); 
+
+            if ( _path === 'homepage' && _data[ 'arr' ] ) {
+                const _headers = _data[ 'arr' ].shift().split( ';' );
+
+                let output = '';
+
+                const _promiseOutput = new Promise( ( resolve, reject ) => {
+                    temp( 'library/bookth', {
+                        title: _headers[ 0 ],
+                        author: _headers[ 1 ],
+                        issuedon: _headers[ 2 ]
+                    } ).then( book => {
+                        output += book;
+
+                        return temp( 'homepage', { one: 'one' } );
+                    } ).then( homepage => {
+                        _data[ 'arr' ].forEach( ( line, _i )=> {
+                            const obj = getObject( _headers, line );
+                            temp( 'library/booktd', obj ).then( _book => {
+                                output += _book;
+
+                                if ( 
+                                    _i 
+                                    === ( _data[ 'arr' ].length - 1 ) 
+                                ) {
+                                    output = `${homepage}<table>${output}</table>`;
+                                    resolve( output );
+                                }
+                            } );
+                        }); 
+                    } );
+
+                    function getObject ( _headers, line ) {
+                        const arr = line.split( ';' );
+
+                        const obj = {};
+                        for ( const i in _headers ) {
+                            obj[ _headers[ i ] ] = arr[i];
+                        }
+
+                        return obj;
+                    } 
+                } );
+
+                return _promiseOutput; 
             }
+
+            return temp( _path, _data ); 
         } ).then( body => {
             resolve( `${_header}${body}${_footer}` );
         } ).catch( err => {
