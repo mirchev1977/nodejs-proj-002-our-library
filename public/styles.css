@@ -26,6 +26,10 @@ ul.header-menu li:hover {
     background-color: yellowgreen;
 }
 
+ul.header-menu .active {
+    background-color: yellowgreen; 
+}
+
 .page-wrapper {
     min-height: 80%;
     padding-top: 5%;

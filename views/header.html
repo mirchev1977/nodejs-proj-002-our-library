@@ -2,8 +2,48 @@
 <body>
     <div class="outer-wrapper">
         <ul class="header-menu">
-            <a href="/"><li>Home</li></a>
-            <a href="/admin/new-book"><li>New Book</li></a>
+            <a href="/"><li class="header-menu__home">Home</li></a>
+            <a href="/admin/new-book"><li class="header-menu__new-book">New Book</li></a>
         </ul>
         <div class="warning"></div>
         <div class="page-wrapper">
+
+<script>
+    var headerMenuHome    = document.getElementsByClassName( 'header-menu__home'     )[0];
+    var headerMenuNewBook = document.getElementsByClassName( 'header-menu__new-book' )[0];
+
+    var headerMenuHomeLS    = localStorage.getItem( 'header-menu__home'     );
+    var headerMenuNewBookLS = localStorage.getItem( 'header-menu__new-book' );
+
+    if ( headerMenuHomeLS ) {
+        headerMenuHome.classList.add( 'active' ); 
+    }
+
+    if ( headerMenuNewBookLS ) {
+        headerMenuNewBook.classList.add( 'active' ); 
+    }
+
+    headerMenuHome.addEventListener( 'click', function ( ev ) {
+        headerMenuHome.classList.remove("active");
+        headerMenuNewBook.classList.remove("active");
+
+        localStorage.removeItem( 'header-menu__home'     );
+        localStorage.removeItem( 'header-menu__new-book' );
+
+        headerMenuHome.classList.add( 'active' );
+
+        localStorage.setItem( 'header-menu__home', 'active' );
+    } );
+
+    headerMenuNewBook.addEventListener( 'click', function ( ev ) {
+        headerMenuHome.classList.remove("active");
+        headerMenuNewBook.classList.remove("active");
+
+        localStorage.removeItem( 'header-menu__home'     );
+        localStorage.removeItem( 'header-menu__new-book' );
+
+        headerMenuNewBook.classList.add( 'active' );
+
+        localStorage.setItem( 'header-menu__new-book', 'active' );
+    } );
+</script>
