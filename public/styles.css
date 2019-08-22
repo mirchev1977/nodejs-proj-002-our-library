@@ -9,7 +9,7 @@ ul.header-menu {
     height: 5%;
 }
 
-ul.header-menu > li {
+ul.header-menu li {
     list-style-type: none;
     display: inline-block;
     border: 1px solid black;
@@ -18,11 +18,11 @@ ul.header-menu > li {
     padding-bottom: 10px;
 }
 
-ul.header-menu > li >a {
+ul.header-menu > a {
     text-decoration: none;
 }
 
-ul.header-menu > li:hover {
+ul.header-menu li:hover {
     background-color: yellowgreen;
 }
 
