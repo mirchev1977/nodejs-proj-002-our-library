@@ -1,8 +1,3 @@
 const path = require( 'path' );
 
-console.log( __dirname );
-
-const fullPath = path.join( __dirname, '..' );
-
-const getRootPath = () => {
-};
+module.exports = path.dirname( process.mainModule.filename );
