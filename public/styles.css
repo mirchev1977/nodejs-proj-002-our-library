@@ -1,0 +1,84 @@
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+ul.header-menu {
+    margin: 0px;
+    padding: 0px;
+    height: 5%;
+}
+
+ul.header-menu > li {
+    list-style-type: none;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ul.header-menu > li >a {
+    text-decoration: none;
+}
+
+ul.header-menu > li:hover {
+    background-color: yellowgreen;
+}
+
+.page-wrapper {
+    min-height: 80%;
+    padding-top: 5%;
+    box-sizing: border-box;
+}
+
+.outer-wrapper {
+    width: 50%;
+    height: 100%;
+    margin: 30px auto;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.warning {
+    font-weight: bold;
+    color:     red;
+    text-align: center;
+} 
+
+.books-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 2% auto;
+}
+
+table.books-table td, table.books-table th {
+    border:  1px solid black;
+    display: table-cell;
+    padding: 10px 30px;
+}
+
+.form-wrapper {
+    display: inline-block;
+    width: 100%;
+}
+
+.form-wrapper form {
+    display: inline-block;
+    margin: 0px 20%;
+}
+
+label {
+    width:      100px;
+    display:    inline-block;
+    text-align: right;
+}
+button {
+    display:      inline-block;
+    margin-left:  105px;
+    margin-top:   10px;
+}
+label, input {
+    display: inline-block;
+    height: 30px;
+}
