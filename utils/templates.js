@@ -63,9 +63,29 @@ const template = ( _path, _data ) => {
 
                         return temp( 'homepage', { one: 'one' } );
                     } ).then( homepage => {
-                        _data[ 'arr' ].forEach( ( line, _i )=> {
-                            const obj = getObject( _headers, line );
-                            temp( 'library/booktd', obj ).then( _book => {
+                        let arrBookLines = _data[ 'arr' ];
+                        const arrBooks = arrBookLines.map( bookLine => { 
+                            return getObject( _headers, bookLine ); 
+                        } );
+
+                        arrBooks.sort( ( a, b ) => {
+                            if ( _data[ 'sort' ] === 'author' ) {
+                                return a['author']
+                                    .toString()
+                                    .localeCompare( b[ 'author' ].toString() )
+                            } else if ( _data[ 'sort' ] === 'issuedon' ) {
+                                return a['issuedon']
+                                    .toString()
+                                    .localeCompare( b[ 'issuedon' ].toString() ) 
+                            } else {
+                                return a['title']
+                                    .toString()
+                                    .localeCompare( b[ 'title' ].toString() ) 
+                            }
+                        } );
+
+                        arrBooks.forEach( ( _bookObj, _i )=> {
+                            temp( 'library/booktd', _bookObj ).then( _book => {
                                 output += _book;
 
                                 if ( 
