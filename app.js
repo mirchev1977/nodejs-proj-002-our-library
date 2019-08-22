@@ -9,10 +9,9 @@ const routesAdmin   = require( './routes/admin'   );
 
 const app = express();
 
-app.use( express.static( path.join( rootDir, 'public' ) ) );
-
 app.use( bodyParser.urlencoded( { extended: false } ) );
 app.use( '/',      routesLibrary );
 app.use( '/admin', routesAdmin   );
+app.use( express.static( path.join( rootDir, 'public' ) ) );
 
 app.listen( 3000 );
