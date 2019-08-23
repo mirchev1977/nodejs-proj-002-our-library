@@ -84,20 +84,17 @@ const template = ( _path, _data ) => {
                             }
                         } );
 
+                        const arrayPromises = [];
                         arrBooks.forEach( ( _bookObj, _i )=> {
-                            temp( 'library/booktd', _bookObj ).then( _book => {
-                                output += _book;
-
-                                if ( 
-                                    _i 
-                                    === ( _data[ 'arr' ].length - 1 ) 
-                                ) {
-                                    output 
-                                        = `${homepage}<table class="books-table">${output}</table>`;
-                                    resolve( output );
-                                }
-                            } );
+                            arrayPromises.push( temp( 'library/booktd', _bookObj ) );
                         }); 
+
+                        Promise.all( arrayPromises ).then( arrThTdLines => {
+                            output += arrThTdLines.join( '' );
+                            output = `${homepage}<table class="books-table">${output}</table>`;
+
+                            resolve( output );
+                        } );
                     } );
 
                     function getObject ( _headers, line ) {
