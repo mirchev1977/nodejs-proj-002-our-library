@@ -51,5 +51,8 @@
             const errorMessage = document.getElementsByClassName( 'warning' );
             errorMessage[0].innerText = 'Wrong Date';
         }
+
+        localStorage.removeItem( 'header-menu__new-book' );
+        localStorage.setItem( 'header-menu__home', 'active' );
     } ); 
 </script>
