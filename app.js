@@ -2,10 +2,13 @@ const express    = require( 'express'           );
 const bodyParser = require( 'body-parser'       );
 const path       = require( 'path'              );
 
-const rootDir = require( './utils/path' );
+const rootDir   = require( './utils/path' );
+const utilities = require( './utils/utilities.js' );
 
 const routesLibrary = require( './routes/library' );
 const routesAdmin   = require( './routes/admin'   );
+
+utilities.rewriteFile ( './data/books_templ.txt', './data/books.txt' );
 
 const app = express();
 
